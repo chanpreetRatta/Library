@@ -42,9 +42,6 @@ a{
     align-content: center;
 }
 
-.card:hover{
-    border: 10px solid black;
-}
 
 .add-book-icon{
     height: 100px;
@@ -71,13 +68,6 @@ a{
 }
 .book-name::before{
     content: "`";
-}
-
-.meta-data{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
 }
 
 .books-container{
