@@ -2,11 +2,94 @@
     box-sizing: border-box;
 }
 
-html, body{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+:root{
+    --primary-color: wheat;  
+}
+
+a{
+    text-decoration: none;
+}
+
+.index-container{
     display: grid;
+    grid-template-rows: min-content auto;
+}
+
+.index-container h1{
+    background-color: black;
+    color: var(--primary-color); 
+    height: 2em;
+    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.book-shelf{
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 50px;
+}
+
+.card{
+    height: 300px; 
+    width: 200px;
+    background-color: black;
+    color: var(--primary-color); 
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    justify-items: center;
+    align-content: center;
+}
+
+.card:hover{
+    border: 10px solid black;
+}
+
+.add-book-icon{
+    height: 100px;
+    width: 100px;
+    font-size: 50px;
+    line-height: 50px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.book-name{
+    font-size: 30px;
+    align-self: center;
+    font-style: italic;
+}
+
+.book-name::after{
+    content: "`";
+}
+.book-name::before{
+    content: "`";
+}
+
+.meta-data{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.books-container{
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    background: black;
+    width: 15em;
+    color: var(--primary-color);
 }
 
