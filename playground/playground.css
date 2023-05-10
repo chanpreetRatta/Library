@@ -1,0 +1,46 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form-container{
+    height: 100vh;
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+}
+
+.book-form{
+    height: 40%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form-group > button {
+    background-color: black;
+    outline: black;
+    color: wheat;
+    width: 20%;
+}
+
+.close-button{
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    background-color: black;
+    color: wheat;
+    border: 1px solid black;
+    border-radius: 50%;
+    align-self: flex-start;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}

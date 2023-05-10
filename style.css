@@ -24,62 +24,146 @@ a{
     align-items: center;
 }
 
+/* Layout for how to keep the book card on the page*/
 .book-shelf{
     padding: 30px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
     gap: 50px;
 }
+/* Add a book card*/
 
-.card{
-    height: 300px; 
-    width: 200px;
+.add-card{
+    height: 350px;
+    width: 250px;
     background-color: black;
-    color: var(--primary-color); 
+    border-radius: 5%;
+    color: wheat;
     display: grid;
-    grid-template-rows: 3fr 1fr;
+    grid-template-rows: 250px 100px;
+    align-items: center;
     justify-items: center;
-    align-content: center;
+}
+
+.add-card > :first-child{
+    height: 10rem;
+    width: 10rem;
+    font-size: 9rem;
+    padding-bottom: 20px;
+    border: 2px solid wheat;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
-.add-book-icon{
-    height: 100px;
-    width: 100px;
-    font-size: 50px;
-    line-height: 50px;
-    border: 2px solid var(--primary-color);
+/* card template*/
+.card{
+    height: 350px;
+    width: 250px;
+    background-color: black;
+    border-radius: 5%;
+    color: wheat;
+    display: grid;
+    grid-template-rows: 30px 200px 80px 40px ;
+    justify-items: center;
+    align-items: center;
+}
+
+/*close sign at the top*/
+
+.card  > :first-child{
+    height: 20px;
+    width: 20px;
+    border: 1px solid wheat;
     border-radius: 50%;
-    margin-bottom: 20px;
+    color: wheat;
+    justify-self: end;
+    margin-right: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    align-self: center;
 }
 
-.book-name{
-    font-size: 30px;
-    align-self: center;
+.card  > :first-child:after{
+    content: "X"; 
+}
+
+/*title of the book*/
+
+.card > :nth-child(2){
+    font-size: 2rem;
+    width: 250px;
+    padding: 0 15px;
+    overflow-wrap: break-word;
     font-style: italic;
 }
 
-.book-name::after{
-    content: "`";
-}
-.book-name::before{
-    content: "`";
+/*footer of the card, where number of pages and reading status is*/
+.card > :nth-child(4){
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-.books-container{
+/*add a new book css */
+.new-book-form{
     height: 100vh;
+    width: 100%; 
+    visibility: hidden;
+    position: absolute;
+    background: rgba(31, 30, 30, 0.9);
+    z-index: 1;
+
+
     display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.form-container{
+    color: var(--primary-color);
+    height: 100vh;
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-form{
+    height: 40%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form-group > button {
+    background-color: black;
+    outline: black;
+    color: wheat;
+    width: 20%;
+}
+
+.close-button{
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    background-color: black;
+    color: wheat;
+    border: 1px solid black;
+    border-radius: 50%;
+    align-self: flex-start;
+
+    display:flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn{
-    background: black;
-    width: 15em;
-    color: var(--primary-color);
-}
+
+
 
