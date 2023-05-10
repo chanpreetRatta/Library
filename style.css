@@ -39,6 +39,8 @@ a{
     background-color: black;
     border-radius: 5%;
     color: wheat;
+    cursor: pointer;
+
     display: grid;
     grid-template-rows: 250px 100px;
     align-items: center;
@@ -169,6 +171,7 @@ a{
     border: 1px solid black;
     border-radius: 50%;
     align-self: flex-start;
+    cursor: pointer;
 
     display:flex;
     justify-content: center;

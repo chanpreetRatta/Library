@@ -1,3 +1,8 @@
 . Make sure your page render from a single function and your code should change only the function. 
 . For example, rendering the books on the page should be done by the setState function. It gets its information from the library array and then update the state. 
 . Use first child and nth child to decorate the card
+
+
+Progress,
+
+.   Working on getting the data from the form and upload to book class, or other better way.
