@@ -71,7 +71,7 @@ a{
     align-items: center;
 }
 
-/*close sign at the top*/
+/*close sign at the top of the card*/
 
 .card  > :first-child{
     height: 20px;
@@ -111,7 +111,7 @@ a{
 /*add a new book css */
 .new-book-form{
     height: 100vh;
-    width: 100%; 
+    width: 100%;
     visibility: hidden;
     position: absolute;
     background: rgba(31, 30, 30, 0.9);
@@ -121,8 +121,19 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
+
+.show{
+    visibility: visible;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn{
+    from {opacity: 0;}
+    top {opacity: 1;}
+}
+
 
 .form-container{
     color: var(--primary-color);
