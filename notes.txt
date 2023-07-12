@@ -1,0 +1,1 @@
+.   added the card layout, next add a render function 
