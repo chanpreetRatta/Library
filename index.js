@@ -1,5 +1,7 @@
 let myLibrary = [];
 let bookShelf = document.querySelector(".main");
+let form = document.querySelector(".form");
+let addButton = document.querySelector(".add-button");
 
 class Book {
   constructor(
@@ -46,6 +48,11 @@ function renderBooks(booksArray = []) {
   });
 }
 
+//this function toggle the visibility of the form to add new books
+function popUpForm() {
+  form.classList.toggle("visibility-hidden");
+}
+
 let book1 = new Book("In the search of Lost Time", "Marcel Proust", 150, false);
 let book2 = new Book("Ulysses", "James Joyce", 250, true);
 
@@ -54,3 +61,5 @@ addBookToLibrary(book2);
 renderBooks(myLibrary);
 
 console.log(bookShelf);
+form.addEventListener("click", popUpForm);
+addButton.addEventListener("click", popUpForm);
