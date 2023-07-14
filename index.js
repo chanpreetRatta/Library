@@ -48,9 +48,16 @@ function renderBooks(booksArray = []) {
   });
 }
 
+function submitForm(event) {
+  event.preventDefault();
+  console.log(event);
+}
+
 //this function toggle the visibility of the form to add new books
-function popUpForm() {
-  form.classList.toggle("visibility-hidden");
+function popUpForm(event) {
+  if (event.target === this) {
+    form.classList.toggle("visibility-hidden");
+  }
 }
 
 let book1 = new Book("In the search of Lost Time", "Marcel Proust", 150, false);
@@ -60,6 +67,6 @@ addBookToLibrary(book1);
 addBookToLibrary(book2);
 renderBooks(myLibrary);
 
-console.log(bookShelf);
 form.addEventListener("click", popUpForm);
+form.addEventListener("submit", submitForm);
 addButton.addEventListener("click", popUpForm);
