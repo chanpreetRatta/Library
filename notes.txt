@@ -3,5 +3,5 @@ Set it to hidden by default after you are done.
 
 
 to-do 
-make a reset function that can reset the .main or bookShelf
-then add the remove book function
+.   latest delete button. It is working but not as desired. 
+.   Once we have localstorage then rendering the books will be easier and will start working. 
