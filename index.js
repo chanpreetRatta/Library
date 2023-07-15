@@ -1,6 +1,7 @@
 let myLibrary = [];
 let bookShelf = document.querySelector(".main");
-let form = document.querySelector(".form");
+let form = document.querySelector(".form"); // this variable contains the div that has a form child. Its class name is form.
+let bookForm = document.querySelector(".book-form"); // this variable will only select the form DOM.
 let addButton = document.querySelector(".add-button");
 
 class Book {
@@ -38,19 +39,29 @@ function renderBooks(booksArray = []) {
     remove.classList.add("remove");
 
     title.appendChild(document.createTextNode(book["title"]));
-    author.appendChild(document.createTextNode(book["author"]));
-    pages.appendChild(document.createTextNode(book["pages"]));
-    isRead.appendChild(document.createTextNode(book["isRead"]));
+    author.appendChild(document.createTextNode("by " + book["author"]));
+    pages.appendChild(document.createTextNode("Pages " + book["pages"]));
+    isRead.appendChild(
+      document.createTextNode(isRead ? "Has Read" : "Has Not Read")
+    );
     remove.appendChild(document.createTextNode("Remove"));
 
     card.append(title, author, pages, isRead, remove);
-    bookShelf.append(card);
+    bookShelf.appendChild(card);
   });
 }
 
 function submitForm(event) {
   event.preventDefault();
-  console.log(event);
+  let title = event.target.title.value;
+  let author = event.target.author.value;
+  let pages = event.target.pages.value;
+  let isRead = event.target.isRead.value === "on" ? true : false;
+
+  let book = new Book(title, author, pages, isRead);
+  addBookToLibrary(book);
+  renderBooks(myLibrary);
+  bookForm.reset();
 }
 
 //this function toggle the visibility of the form to add new books
@@ -60,13 +71,24 @@ function popUpForm(event) {
   }
 }
 
-let book1 = new Book("In the search of Lost Time", "Marcel Proust", 150, false);
-let book2 = new Book("Ulysses", "James Joyce", 250, true);
+function removeCard(event) {
+  if (event.target.className !== "remove") return;
+  let newArray = myLibrary.filter(
+    (book) => book.title !== event.target.parentNode.firstChild.innerHTML
+  );
 
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-renderBooks(myLibrary);
+  myLibrary = [...newArray];
+  renderBooks(myLibrary);
+}
 
 form.addEventListener("click", popUpForm);
-form.addEventListener("submit", submitForm);
+bookForm.addEventListener("submit", submitForm);
 addButton.addEventListener("click", popUpForm);
+//event listeners for all the cards that are present in the bookShelf(.main div)
+bookShelf.addEventListener("click", removeCard);
+
+let book = new Book("Mera Dagistan", "Rasool", 200, true);
+let book1 = new Book("Tera Dagistan", "Rasool", 200, true);
+addBookToLibrary(book);
+addBookToLibrary(book1);
+renderBooks(myLibrary);

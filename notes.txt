@@ -1,3 +1,7 @@
 now the form is set to visible by default, so that I can program the form function.
 Set it to hidden by default after you are done.
 
+
+to-do 
+make a reset function that can reset the .main or bookShelf
+then add the remove book function

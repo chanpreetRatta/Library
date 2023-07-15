@@ -12,8 +12,8 @@ html{
 
 body{
     display: grid;
-    height: 100vh;
-    grid-template-rows: 15% 1fr 5%;
+    min-height: 100vh;
+    grid-template-rows: min-content auto min-content;
 }
 
 header{
@@ -42,6 +42,7 @@ Hide the content when added to any thing
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
     justify-items: center;
 }
 
@@ -121,6 +122,8 @@ footer{
     color: wheat;
     background-color: var(--background-color);
     font-size: 10px;
+    
+   
     display: flex;
     align-items: center;
     justify-content: right; 
