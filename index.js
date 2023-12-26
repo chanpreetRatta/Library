@@ -34,6 +34,7 @@ function createCard(bookTitle, bookAuthor, bookPages, bookIsRead) {
   pages.classList.add("pages");
   let isRead = document.createElement("div");
   isRead.classList.add("isRead");
+  if (!bookIsRead) isRead.setAttribute("id", "isReadFalse");
   let remove = document.createElement("div");
   remove.classList.add("remove");
   title.appendChild(document.createTextNode(bookTitle));
@@ -90,9 +91,19 @@ function removeCard(event) {
   myLibrary = [...newArray];
   updateDom();
 }
+function toggleIsRead(event) {
+  if (event.target.className !== "isRead") return;
+  myLibrary.forEach((book) => {
+    if (book.title === event.target.parentNode.firstChild.innerHTML) {
+      book.isRead = !book.isRead;
+    }
+  });
+  updateDom();
+}
 
 form.addEventListener("click", popUpForm);
 bookForm.addEventListener("submit", submitForm);
 addButton.addEventListener("click", popUpForm);
 //event listeners for all the cards that are present in the bookShelf(.main div)
 bookShelf.addEventListener("click", removeCard);
+bookShelf.addEventListener("click", toggleIsRead);

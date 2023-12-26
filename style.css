@@ -87,6 +87,14 @@ It is controlled by visibility-hidden property on line number 36 */
     
 }
 
+.isRead{
+    cursor: pointer;
+}
+
+#isReadFalse{
+    color: red;
+}
+
 .new-book{
     cursor: pointer;
 }
