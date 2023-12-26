@@ -53,8 +53,8 @@ function submitForm(event) {
   let title = event.target.title.value;
   let author = event.target.author.value;
   let pages = event.target.pages.value;
-  let isRead = event.target.isRead.value === "on" ? true : false;
-  console.log(isRead);
+
+  let isRead = event.target.isRead.checked;
 
   let book = new Book(title, author, pages, isRead);
   addBookToLibrary(book);

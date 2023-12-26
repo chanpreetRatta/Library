@@ -1,7 +1,1 @@
-now the form is set to visible by default, so that I can program the form function.
-Set it to hidden by default after you are done.
-
-
-to-do 
-.   latest delete button. It is working but not as desired. 
-.   Once we have localstorage then rendering the books will be easier and will start working. 
+working on isRead. every book is marked as read in the array
