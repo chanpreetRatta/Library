@@ -22,33 +22,30 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-function renderBooks(booksArray = []) {
-  booksArray.forEach((book) => {
-    let card = document.createElement("div");
-    card.classList.add("card");
+function createCard(bookTitle, bookAuthor, bookPages, bookIsRead) {
+  let card = document.createElement("div");
+  card.classList.add("card");
 
-    let title = document.createElement("div");
-    title.classList.add("title");
-    let author = document.createElement("div");
-    author.classList.add("author");
-    let pages = document.createElement("div");
-    pages.classList.add("pages");
-    let isRead = document.createElement("div");
-    isRead.classList.add("isRead");
-    let remove = document.createElement("div");
-    remove.classList.add("remove");
+  let title = document.createElement("div");
+  title.classList.add("title");
+  let author = document.createElement("div");
+  author.classList.add("author");
+  let pages = document.createElement("div");
+  pages.classList.add("pages");
+  let isRead = document.createElement("div");
+  isRead.classList.add("isRead");
+  let remove = document.createElement("div");
+  remove.classList.add("remove");
+  title.appendChild(document.createTextNode(bookTitle));
+  author.appendChild(document.createTextNode("by " + bookAuthor));
+  pages.appendChild(document.createTextNode("Pages " + bookPages));
+  isRead.appendChild(
+    document.createTextNode(bookIsRead ? "Has Read" : "Has Not Read")
+  );
+  remove.appendChild(document.createTextNode("Remove"));
+  card.append(title, author, pages, isRead, remove);
 
-    title.appendChild(document.createTextNode(book["title"]));
-    author.appendChild(document.createTextNode("by " + book["author"]));
-    pages.appendChild(document.createTextNode("Pages " + book["pages"]));
-    isRead.appendChild(
-      document.createTextNode(isRead ? "Has Read" : "Has Not Read")
-    );
-    remove.appendChild(document.createTextNode("Remove"));
-
-    card.append(title, author, pages, isRead, remove);
-    bookShelf.appendChild(card);
-  });
+  return card;
 }
 
 function submitForm(event) {
@@ -57,11 +54,24 @@ function submitForm(event) {
   let author = event.target.author.value;
   let pages = event.target.pages.value;
   let isRead = event.target.isRead.value === "on" ? true : false;
+  console.log(isRead);
 
   let book = new Book(title, author, pages, isRead);
   addBookToLibrary(book);
-  renderBooks(myLibrary);
+  updateDom();
   bookForm.reset();
+}
+
+function updateDom() {
+  let addNewBookCard = bookShelf.children[0];
+  bookShelf.innerHTML = "";
+  bookShelf.appendChild(addNewBookCard);
+
+  myLibrary.forEach((book) => {
+    bookShelf.appendChild(
+      createCard(book.title, book.author, book.pages, book.isRead)
+    );
+  });
 }
 
 //this function toggle the visibility of the form to add new books
@@ -78,7 +88,7 @@ function removeCard(event) {
   );
 
   myLibrary = [...newArray];
-  renderBooks(myLibrary);
+  updateDom();
 }
 
 form.addEventListener("click", popUpForm);
@@ -86,9 +96,3 @@ bookForm.addEventListener("submit", submitForm);
 addButton.addEventListener("click", popUpForm);
 //event listeners for all the cards that are present in the bookShelf(.main div)
 bookShelf.addEventListener("click", removeCard);
-
-let book = new Book("Mera Dagistan", "Rasool", 200, true);
-let book1 = new Book("Tera Dagistan", "Rasool", 200, true);
-addBookToLibrary(book);
-addBookToLibrary(book1);
-renderBooks(myLibrary);
